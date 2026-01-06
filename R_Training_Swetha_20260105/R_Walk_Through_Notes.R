@@ -129,9 +129,25 @@ Person <- R6Class("Person",
                   )
 )
 
-#create an object
-p<- Person$new("swetha","30")
-p$greet()
+
+#compiler  ... its checks the grammical of R
+#interpreter ... once the compiler say ok ... this intrepter executes.
+print("hello")
+prinT()
 
 
+#keyword
+TRUE
+a <- function(){
+  print("hellow")
+}
 
+matrix()
+
+#0ne<-33
+a
+
+3+3 #numeric later
+
+#operator is a symbol +,*,-
+#using operator you form a expression or notations which is literals
