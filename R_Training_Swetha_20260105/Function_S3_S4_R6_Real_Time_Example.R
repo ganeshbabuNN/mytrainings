@@ -68,6 +68,55 @@ derive(LB)
 derive(AE)
 ##Same function name, different behavior based on domain.
 
+##########################S4
+##Define S4 Classes
+setClass("LB",
+         slots = list(
+           data = "data.frame"
+         ))
+
+setClass("AE",
+         slots = list(
+           data = "data.frame"
+         ))
+##Define a Generic Function
+setGeneric("derive", function(object) standardGeneric("derive"))
+##Define Domain-Specific Methods
+##LB Method
+setMethod("derive", "LB", function(object) {
+  df <- object@data
+  df$LBSTAT <- ifelse(
+    is.na(df$LBORRES) | trimws(df$LBORRES) == "",
+    "NOT DONE",
+    NA_character_
+  )
+  object@data <- df
+  object
+})
+##AE Method
+setMethod("derive", "AE", function(object) {
+  df <- object@data
+  df$AESERFL <- ifelse(df$AESER == "Y", "Y", "N")
+  object@data <- df
+  object
+})
+##Create S4 Objects
+lb_obj <- new("LB", data = LB)
+ae_obj <- new("AE", data = AE)
+
+#Run Derivations
+lb_obj <- derive(lb_obj)
+ae_obj <- derive(ae_obj)
+
+lb_obj@data
+ae_obj@data
+#Use S4 when you want:
+#Strict structure (only valid LB/AE objects allowed)
+#Formal contracts (like Define.xml enforcing types)
+#Frameworks or packages (e.g., Bioconductor-style tools)
+
+##Same data result, but wrapped inside a formal S4 object.
+
 ########################R6 (Framework / Tool Style)
 library(R6)
 
