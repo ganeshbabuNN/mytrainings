@@ -1,7 +1,7 @@
 #Input SDTM datasets (LB + AE)
 #Business rules (real SDTM logic)
 #Three implementations:
-###Function
+###Function mostly used.
 ###S3 (recommended for frameworks)
 ###R6 (tool-style)
 ##Outputs
@@ -26,6 +26,7 @@ AE
 ########################## normaly way without using a function
 LB$LBSTAT <- ifelse(is.na(LB$LBORRES) | trimws(LB$LBORRES) == "","NOT DONE",NA_character_)
 LB
+
 AE$AESERFL <- ifelse(AE$AESER == "Y", "Y", "N")
 AE
 
@@ -46,8 +47,8 @@ derive_AE <- function(df) {
   df
 }
 
-derive_LB(LB)
-derive_AE(AE)
+LB_out <- derive_LB(LB)
+AE_out <- derive_AE(AE)
 
 ##########################S3 (One derive() for all domains)
 ##Generic
@@ -70,8 +71,9 @@ derive.AE <- function(x) {
 class(LB) <- c("LB", class(LB))
 class(AE) <- c("AE", class(AE))
 
-derive(LB)
-derive(AE)
+LB_out <- derive(LB)
+AE_out <- derive(AE)
+
 ##Same function name, different behavior based on domain.
 
 ##########################S4
