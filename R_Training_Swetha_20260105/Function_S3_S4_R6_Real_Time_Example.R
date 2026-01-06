@@ -23,6 +23,12 @@ AE <- data.frame(
 AE
 #If AESER = "Y" → AESERFL = "Y" else "N"
 
+########################## normaly way without using a function
+LB$LBSTAT <- ifelse(is.na(LB$LBORRES) | trimws(LB$LBORRES) == "","NOT DONE",NA_character_)
+LB
+AE$AESERFL <- ifelse(AE$AESER == "Y", "Y", "N")
+AE
+
 ############################Using the function
 ##Dervice LB
 derive_LB <- function(df) {
@@ -109,17 +115,16 @@ lb_obj <- derive(lb_obj)
 ae_obj <- derive(ae_obj)
 
 lb_obj@data
-ae_obj@data
+ae_obj@data ##Same data result, but wrapped inside a formal S4 object.
+
 #Use S4 when you want:
 #Strict structure (only valid LB/AE objects allowed)
 #Formal contracts (like Define.xml enforcing types)
 #Frameworks or packages (e.g., Bioconductor-style tools)
 
-##Same data result, but wrapped inside a formal S4 object.
 
 ########################R6 (Framework / Tool Style)
 library(R6)
-
 SDTM_Domain <- R6Class("SDTM_Domain",
                        public = list(
                          data = NULL,
