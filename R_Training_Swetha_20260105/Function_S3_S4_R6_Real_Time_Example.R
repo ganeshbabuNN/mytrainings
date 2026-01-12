@@ -50,7 +50,7 @@ derive_AE <- function(df) {
 LB_out <- derive_LB(LB)
 AE_out <- derive_AE(AE)
 
-##########################S3 (One derive() for all domains)
+########################## S3 (One derive() for all domains)
 ##Generic
 derive <- function(x) UseMethod("derive")
 ##LB Method
@@ -62,11 +62,13 @@ derive.LB <- function(x) {
   )
   x
 }
+
 #AE Method
 derive.AE <- function(x) {
   x$AESERFL <- ifelse(x$AESER == "Y", "Y", "N")
   x
 }
+
 ##Assign classes
 class(LB) <- c("LB", class(LB))
 class(AE) <- c("AE", class(AE))
