@@ -29,6 +29,7 @@ uv python pin 3.12
 ##select the kernal based on the pyvenu.cfg locatins
 #c:/Users/ganes/AppData/Roaming/uv/python/cpython-3.12.12-windows-x86_64-none/python.exe -m pip install ipykernel -U --user --force-reinstall
 
+#Create environment 
 uv venv level_1_venv #using environment with name suggest to suffix as _venv
 level_1_venv\Scripts\activate  #activate the /env
 level_1_venv\Scripts\deactivate  #deactivate if you want
@@ -50,4 +51,12 @@ python -m venv .venv ##python way if the path -TBE
 #operators are special symbols
 #monal is using cyberpunk theme
 
-2:47:23
+
+##2026018 - class
+#=================
+#python II
+#String properties
+#operator-II
+#control flow
+#control flow -II(advanced)
+#non primitive data type.
