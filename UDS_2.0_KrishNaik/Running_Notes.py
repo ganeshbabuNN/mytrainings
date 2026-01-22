@@ -71,6 +71,13 @@ python -m venv .venv ##python way if the path -TBE
 #control flow -II(advanced)
 #non primitive data type.
 
+"data science" --> type()-->function <class 'str'>
+#builtin function
+print()
+id()
+type()
+int() float() str()
+
 
 ##2026021 - class
 #=================
@@ -81,5 +88,10 @@ python -m venv .venv ##python way if the path -TBE
 #loop
 
 
-#turning of the code  suggestion
+#turning of the code suggestion or recommendations
 #file -> perferences --> settings --> editor.inlineSuggest.enabled=false
+#github.copilot.enable ==> * =false
+#chat.disableAIFeatures=false # for disableed the chat window
+
+
+#
