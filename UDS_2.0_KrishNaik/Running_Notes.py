@@ -39,6 +39,15 @@ python -m pip install ipykernel
 python -m pip install --upgrade ipykernel #if want to upgrade
 python -m venv .venv ##python way if the path -TBE
 
+
+#Type of operators
+#There are different types of operators
+#- arthematic operators : +,-,*,/,%
+#- Relations operators : <,>,<=,>=,==
+#- Assignment operator : = ,~=,-=,
+#- logical operator : AND,OR,NOT
+#- bitwise : &,|,^,~,<<,>>
+
 ##varibles
 #========================
 #install --> HDD/SSD
@@ -78,6 +87,111 @@ id()
 type()
 int() float() str()
 
+#class have some properties
+#house -> door
+#      -> windows
+#      ->rooms
+#      ->floor
+# str --> strip(),istrip(), rstrip()
+
+#method is property of something is called methods
+#function it does some job.
+#properties is concept and method is more like technical
+
+#to remove white spaces from string we use below methods:
+#lstrip()--> remove spaces from left side
+#rstrip()--> remove spaces from right side
+#strip()--> combinations of the above.
+
+#operators()
+#relational operator
+#relation of two values and we use operators to check if it is true or false
+12>3  #true
+12 <3 #false
+12 >=3 #true
+12!=12 #false
+3==3 # true
+3>=3 #true
+12==12 #
+3<12
+
+#Assignment operator
+a+=2 --> a=a+2
+a*=2 --> a=a*2
+a%=2 --> a=a%2
+a/=2 --> a=a/2
+
+#logical operator
+#TRUTH table
+#AND 
+1,0=0
+0,1=0
+0,0=0
+1,1=1
+#OR #only true when any one of them is true
+1,0=1
+0,1=1
+0,0=0
+1,1=1
+#NOT
+1=0
+0=1
+
+#XOR - only true when only one of them is true
+1,0=1
+0,1=1
+0,0=0
+1,1=0
+
+#bitwise operator
+# & I ^
+
+#control flow
+control the flow of the program.
+
+#agenda: apple : 4
+#if --> whether 4 apples or more are present in the store , will by apple
+#then --> we will not buy apply.
+
+#task : application /tool --> connect to a wifi
+#1) if wifi_avail: connect
+#2) if wifi_avail: connect 
+#     else: 
+#       tell user, no wifi available
+
+
+#control flow -II
+if <cond>:
+    do something
+else:
+    do something
+    
+if <cond>:
+   do something
+
+if cond:
+  do something
+elif cond:
+  do something:
+..
+..
+elif cond:
+    do something:
+    
+else:
+    do something
+    
+elif cond:
+    do something
+
+#primitive data types of python --> primitive data Type
+#int,float,str,bool
+#non  primitive datat type:
+#list,dict,tuple,set
+
+#array --> [1,2,4,5] --> init
+#in python we do not have array but we have list which is more powerful.
+
 
 ##2026021 - class
 #=================
@@ -94,4 +208,4 @@ int() float() str()
 #chat.disableAIFeatures=false # for disableed the chat window
 
 
-#
+#control the flow of the program.
