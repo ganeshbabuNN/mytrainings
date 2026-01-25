@@ -1,4 +1,15 @@
 
+https://www.notion.so/KNDataScience-2-0-2f1856e0e30d80e9a0f9c79ee348a213 - website 
+Announcements : https://www.notion.so/1-Announcements-2f1856e0e30d802e8dbbf799ab79fced
+AI roadmap : https://www.linkedin.com/posts/monal-s-871631140_ai-roadmap-2025-26-activity-7338257668832178178-fVPr
+AI/DL work : https://www.linkedin.com/posts/monal-s-871631140_ai-deeplearning-hardwaretips-activity-7316000414255001601-ahCU
+
+
+Mayak udemy:
+https://www.udemy.com/course/complete-ai-automation-and-agentic-ai-bootcamp-with-n8n/ - do this first.
+https://www.udemy.com/course/n8n-production-mastery-from-zero-to-agency-ready-in-30-days/  -- do this second.
+
+
 #2026017 - class
 #================
 #agenda
@@ -199,7 +210,7 @@ elif cond:
 #input
 #output
 #control flow(advance)
-#loop
+#loops
 
 
 #turning of the code suggestion or recommendations
@@ -209,3 +220,99 @@ elif cond:
 
 
 #control the flow of the program.
+
+
+##2026024 - class
+#=================
+#agenda
+# Python - 4
+# discussion on resource
+# non-primitive data types
+# while loop
+# function
+# function arguments
+
+#non primitive data types list
+#list
+#1)list when we append something to the list, it maintain the order to append.
+#2)it accepts any datatype, even duplicates are allowed.
+#3)Methods:
+#-append(): add an element/value to the end
+#-pop(): remove by index
+
+#!. Problem statement : i want to know the last value of value.
+#--> get the first value --> index 0
+#--> get the last value --> index -1
+#index --> -1 --> last element
+
+#len functions.
+#len() for string--> it count the characters
+#len()--> list --> count total number of elements/value
+
+#pop(index)
+#append(value)--> it appends at the last index
+#remove(value) --> remoe the first occurance 
+#insert(value)--> insert the value based on specific index
+
+#Dictionary(The key -value pari):
+#1)to store data will labels(keys) instead of positions
+#2)key must be (string/numbers/tuples) values can be anything.
+#3)keys should always be unique,duplicated values are accepted.
+
+#dictionary starts with curly brackets {}
+#r ={"pritam":[dob,phone,city,pob,occuption],
+
+
+#mutable and immutable 
+#mutable -changes are allowed
+#immutable -change are not allowed
+
+#tuple (immutable):
+#1)data that should not change(ID)
+#2)prevents acidental cases where data can be overwritten.
+#3)its accepts anything
+#4)limitation: append(),pop(),non re-assignment after creations.
+
+#Jelly fish theme New monal theme
+
+#set(the Unique value)
+#1)to handle uniquness
+#2)Removes duplicates automatically
+#3)Note:Unordered
+
+##2026025 - class
+#=================
+#string methods 
+#while loop
+#functions
+#function arguments
+
+#string methods  upper(),lower(),title(),captialize(),swapcase,split(),find(), + operator for continations,join().
+
+#while loop :
+#for loop  -- iterate over a sequence of elements ex  for i in [1,2,3],
+#          --we already know how many iterations loops is going to take.
+# while loop --repeat the block of code until certain condition is met.
+#  while condition :--------
+# condition --> understand python....
+# while conditions   
+#Example: 
+#keep adding +1 to the count until it is smaller than or equal to 5.
+#count <=5
+
+#control flow 
+#break --> terminates the loop
+#continue --> skips the current iterations.
+
+#function
+##dynamic input for a function from user
+##return a function
+##dynamic input via function arguments ( hands concept)
+##default arguments
+##
+
+#summary 
+#String methods- upper(),lower(),title(),captialize(),swapcase,split(),find(), + operator for continations,join().
+#while loop - difference from for and while loop, counter, infinite, control flow(break, continue)
+#function --> create and execute, dynamic input, return function
+#functional arguments --> Dynamic input via function arguments, default arguments..
