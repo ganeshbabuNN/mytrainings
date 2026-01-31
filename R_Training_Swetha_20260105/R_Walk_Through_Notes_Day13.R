@@ -14,7 +14,7 @@
 #Special Infix Operators
 #Subsetting Operators
 #Tidyverse Logical Helpers
-#Bitwise Operators 
+#Bitwise Operators
 
 #Arithmetic operators
 #==================
