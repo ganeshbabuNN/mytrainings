@@ -122,8 +122,32 @@ df <- data.frame(
   salary = c(20000, 30000, 50000, 15000)
 )
 df$age >= 18 & df$salary > 25000
+df <- data.frame(
+    age = c(18, 22, 30, 15),
+    salary = c(20000, 30000, 50000, 15000)
+)
+df$age >= 18 & df$salary > 25000
 
+#operator overloading and overridding
+#====================================
 
+#using number
+a<-3
+b<-4
+a+b
+
+#using string
+a<-"ganesh"
+b<-"babu"
+a|b
+
+l1 <- c(1,2,3)
+l2 <- c(1,2,3)
+l1+l2
+
+l1 <- list(1,2,3)
+l2 <- list(1,2,3)
+l1+l2
 
 
 
