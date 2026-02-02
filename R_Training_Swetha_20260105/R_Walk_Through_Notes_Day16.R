@@ -71,7 +71,7 @@ cummin(a)
 
 a <- c(12.36,22.3600,3.899,4.256,5.36,6)
 class(a)
-format(as.numeric(a),nsmall = 2) #TBD
+format(as.numeric(a),nsmall = 1) #TBD
 format(a,digits =3)
 format(c(6.0, 13.1), digits = 2)
 format(12.343456,digits=4)
@@ -104,3 +104,5 @@ format_ISO8601(Sys.time())
 a <- "03012026"
 as.Date(a)
 dmy(a)
+
+
