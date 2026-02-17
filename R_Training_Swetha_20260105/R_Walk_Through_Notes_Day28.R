@@ -101,12 +101,14 @@ for(i in 1:10){
 }
 
 v<- c("a","b","c",1,"10")
+v
 for(i in v){
   print(i)
 }
 
 
 v1<- list("a","b","c",1,"10",v)
+v1
 typeof(v1)
 for(i in v1){
   print(i)
