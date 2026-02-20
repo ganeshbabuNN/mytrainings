@@ -1,67 +1,3 @@
-#https://leetcode.com
-#https://www.hackerrank.com/
-
-#nested loop
-# 1X1 = 1
-# 1X2 = 2
-# 1X3 = 3
-for(i in 1:10){
-  for(j in 1:10){
-    print(paste(i,"X",j,"=",i*j))
-  }
-}
-
-for(i in 1:10){
-  print("parent Loop",i)
-  for(j in 1:10){
-    Sys.sleep(2)
-    print("Child Loop",i)
-  }
-}
-##while loop]
-for(i in 1:10){
-  print(i)
-}
-
-i<-1
-while(i<=10){
-  print(i)  # 1, 2   # assign to 1 X 5 and try to do the data structure 
-  i+1
-}
-
-acc_bal <- 2000
-tran <- 100
-flag <- 1
-while(acc_bal > 0){
-  acc_bal <- acc_bal-tran
-  flag <- flag + 1
-  print(flag)
-  if(flag==5){
-    break
-  }
-  print(acc_bal)
-}
-##repeat loop
-i<-1
-repeat{
-  #code
-  Sys.sleep(1)
-  if(i==10){
-    print("break")
-    break
-  }
-  if(i==5){
-    next
-    print("skip")
-  }
-  print(i)
-  i<-i+1
-}
-#transfer statement
-##break
-##next
-#other statement
-## Guard clases
 ## apply statement
 lapply()
 apply
@@ -108,7 +44,7 @@ mapply(sum,1:3,4:6)
 #anonymous function: the function which do not have the function name 
 #lamba functions
  
-#apply(),lappy(),sapply(),vapply(),tapply(),mapply()
+#apply(),lapply(),sapply(),vapply(),tapply(),mapply()
 
 dm<- read.csv("https://raw.githubusercontent.com/ganeshbabuNN/datasets/refs/heads/master/clinical_datasets/sdtm/daibetes/csv/dm.csv")
 ae<- read.csv("https://raw.githubusercontent.com/ganeshbabuNN/datasets/refs/heads/master/clinical_datasets/sdtm/daibetes/csv/ae.csv")
@@ -137,11 +73,27 @@ length(unique(dm$USUBJID))
 unique_subj <- function(a){
   length(unique(a$USUBJID))
 }
-sapply(count_domain, function)
+sapply(count_domain, unique_subj)
 
+#vapply()
+#type-safe version of sappply
+vapply(count_domain, unique_subj,numeric(1))
+numeric(2)
 
+#tapply()
+#groupwise
+tapply(dm$AGE,dm$SEX,mean,na.rm=TRUE)
 
-
+#mapply()
+bmi<- function(w,h){
+  w/(h/100)^2
+}
+vs_HEIGHT <- vs[which(vs$VSTESTCD=='HEIGHT'),"VSSTRESN"]
+vs_WEIGHT <- vs[which(vs$VSTESTCD=='WEIGHT'),"VSSTRESN"]
+length(vs_HEIGHT)
+length(vs_WEIGHT)
+#FAIR principles
+mapply(bmi,vs_WEIGHT,vs_HEIGHT)
 
 
 
