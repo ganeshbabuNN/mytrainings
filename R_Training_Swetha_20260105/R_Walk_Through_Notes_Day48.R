@@ -84,3 +84,11 @@ flights |> filter(coalesce(arr_delay,0) >60) |> select(carrier,dep_time,arr_time
 #mutliple columsn if departure delay is missing, it usses the arrival delay
 flights |> filter(is.na(dep_delay) | !is.na(arr_delay)) |> 
   mutate(delay = coalesce(dep_delay,arr_delay)) |> select(carrier,dep_delay,arr_delay,delay)
+
+demo_1<- flights |> mutate(n_a =coalesce(arr_delay,1)) |> 
+  select(carrier,dep_time,arr_time,arr_delay,n_a) |> 
+  filter(is.na(arr_delay))
+
+#analyse by Sarang will getback on next day
+flights |> filter(coalesce(arr_delay,1)==1) |> 
+  select(carrier,dep_time,arr_time,arr_delay)
