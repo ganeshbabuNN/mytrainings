@@ -66,5 +66,17 @@ any(c(a,b) >40)
 all(c(a,b) >40)
 
 
+#filter() --verb
+#helper function -- if_any(),if_all(), between(),near()
+
+#select()- verb
+#helper starts_width(),ends_width(),contains(), everything,all_of(),any_of()
+
+#mutate()/summarise()
+#helper - across(),pick(),c_across()(for rowwise())
+distinct()
+n_dis
+
+
 
 
