@@ -62,4 +62,3 @@ f <- tibble(
   dep_delay = c(11,20,40,50,60),
   arr_delay = c(40,50,30,20,20)
 )
-
