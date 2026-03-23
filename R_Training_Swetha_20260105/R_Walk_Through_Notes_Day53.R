@@ -27,12 +27,12 @@ flights |>
   summarise(across(everything(),~mean(is.na(.x))))
 
 #flitering using windows ranking functions
-x<-c(10,20,20,40,15)
+x<-c(10,20,20,40,15,NA,NA)
 row_number(x)
 min_rank(x)
 dense_rank(x)
 percent_rank(x)
-x = rank-1/(n-1)
+#formule x = rank-1/(n-1)
 
 #first flight per carrier per day
 flights |> 
