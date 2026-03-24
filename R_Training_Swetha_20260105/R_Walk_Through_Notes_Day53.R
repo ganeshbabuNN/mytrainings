@@ -76,3 +76,6 @@ flights |>
   filter(min_rank(desc(arr_delay)) <=3) |> 
   select(origin,carrier,flight,arr_delay) |> 
   arrange(origin,desc(arr_delay))
+
+"one" > "FIfty four"
+"one" < "tWo"
