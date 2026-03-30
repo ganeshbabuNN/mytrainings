@@ -63,7 +63,7 @@ flights |> group_by(carrier,origin) |> summarise(n_of_fligh_per_car = n())
 flights |> group_by(dest) |> summarise(n_dest = n())
 
 
-#to get the  unique of carrier and flight
+#to get the  unique of carrier and flight 
 flights |> select(carrier,flight,year,month,day) |> 
   summarise(u_car = n_distinct(carrier),
             u_fligh = n_distinct(flight))
