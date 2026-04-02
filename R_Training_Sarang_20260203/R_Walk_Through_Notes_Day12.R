@@ -17,13 +17,14 @@ library(tidyverse)
 #^,** --exponentiation (Right-to-Left )
 #+,-(unary) -sign (Right-to-Left )
 #*,/,%%,%/%--- multiple,divide,modulus
-#+,- --- additions, subtraction
 #: --- sequence
+#+,- --- additions, subtraction
 #<,<=,>,==,!= ------Relational 
 #! --- logical NOT
 #& --- logical AND (vectorized)
-##| --- logical OR 
+# | --- logical OR (vectorized)
 #&& --- logical AND(short-ciruit)
+# || --- logical AND(short-ciruit)
 #<-,->,= --- assignment (Right-to-Left )
 #~ ---- formula (Right-to-Left)
 ##Higher priority operators are evaluated first.
@@ -83,6 +84,4 @@ c(1,2,3):
 5+TRUE & !FALSE
 5+TRUE & (!FALSE)
 5+(TRUE & TRUE)
-5+TRUE
-
-z
+5+TRUE 

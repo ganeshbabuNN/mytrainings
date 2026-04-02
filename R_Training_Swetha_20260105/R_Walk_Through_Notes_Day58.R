@@ -1,5 +1,5 @@
 library(tidyverse)
-library(nycflights13)  
+library(nycflights13)
 
 
 flights
@@ -11,3 +11,4 @@ data("airlines")
 data("airports")
 data("weather")
 data("planes")
+View(flights)
