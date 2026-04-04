@@ -48,7 +48,6 @@ flights |>
          running_delay1=dep_delay+lag(dep_delay,1) +lag(dep_delay,2)
         )  
 
-
 #filter with Frequency
 
 #how many flights did each ariline operator ? per carrier the count of flights
