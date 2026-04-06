@@ -74,4 +74,3 @@ planes |> filter(tailnum %in% c("N542MQ","N3DUAA"))
 flights |> relocate(carrier,flight,dep_time,arr_time,dep_delay,arr_delay)
 #using the predicate
 flights |> relocate(where(is.character))
-
