@@ -47,11 +47,12 @@ nest_tibble$data[[15]]
 weather
 colSums(is.na(weather))
 colSums(is.na(flights))
+
 flights |> 
   filter(is.na(dep_time) & !is.na(weather$precip))
 
+is.na(flights$dep_time)
+length(is.na(flights$dep_time))
+!is.na(weather$precip)
+length(!is.na(weather$precip))
 weather |> select(precip) |> pull()
-
-
-
-
