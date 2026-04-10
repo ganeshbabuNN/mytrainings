@@ -27,6 +27,7 @@ cross_join()
 join_by()
 
 
+
 #Table A: Heroes
 heroes <- tribble(
   ~name,    ~pub_id,
@@ -43,54 +44,20 @@ pubs <- tribble(
 
 heroes
 pubs
+#only keep the row where the key column exits in both tables
+inner_join(heroes,pubs,by="pub_id")
+flights |> inner_join(airlines,by="carrier") |> glimpse() |> select(carrier,name) |> distinct()
 
-#nest_join()
-#keeps the left table as-is but add the list of matches as a min-table inside a new column
-x<-nest_join(pubs,heroes,by="pub_id")
-x
-x$heroes[[2]]
-x$heroes[[1]]
+#left_join()
+#keep all rows from the table A and return the row which are matched to table B based on the key.
+left_join(heroes,pubs,by="pub_id")
+flights |> left_join(airlines,by="carrier") |> glimpse() |> select(carrier,name) 
 
-#filter join()
-#semi_join()
-left_join(heroes,pubs,by="pub_id") #adding a new column from the right table
-semi_join(heroes,pubs,by="pub_id") #only matches rows without adding any extra rows or column
+#right_join()
+#keep all rows from the table B and return the row which are matched to table A based on the key.
+right_join(heroes,pubs,by="pub_id")
+flights |> right_join(airlines,by="carrier") |> glimpse() |> select(carrier,name) 
 
-#anti_join()
-#keep the rows in th eleft only if they don't match in the right
-anti_join(heroes,pubs,by="pub_id")
-
-#cross_join()
-cross_join(heroes,pubs)
-
-#join_by()
-inner_join(heroes,pubs,by=join_by(pub_id))
-?join_by
-
-sales <- tibble(
-  id = c(1L, 1L, 1L, 2L, 2L),
-  sale_date = as.Date(c("2018-12-31", "2019-01-02", "2019-01-05", "2019-01-04", "2019-01-01"))
-)
-sales
-
-promos <- tibble(
-  id = c(1L, 1L, 2L),
-  promo_date = as.Date(c("2019-01-01", "2019-01-05", "2019-01-02"))
-)
-promos
-
-# Match `id` to `id`, and `sale_date` to `promo_date`
-by <- join_by(id, sale_date >= promo_date)
-left_join(sales, promos, by)
-
-#same var name as key
-flights |> left_join(airlines,by="carrier") 
-
-#diff varibale as a key
-flights |> left_join(airports,by=c("dest"="faa")) |> select(dest,month,year,day,name)
-filter(airports,faa=="ATL")
-
-#multiple keys, here i want to join with multiple keys which are same in both table.
-flights |> glimpse() #origin, time_hour
-weather |> glimpse() #origin, time_hour
-flights |> left_join(weather,by=c("origin","time_hour"))
+#full_join()
+full_join(heroes,pubs,by="pub_id")
+#keeps everthing from both table along with matches.
