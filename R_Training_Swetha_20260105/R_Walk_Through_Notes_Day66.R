@@ -102,3 +102,16 @@ weather |> select(origin) |> nrow()
 flights |> 
   inner_join(weather,by="origin",relationship ="many-to-many")
 #this is data explosion and should not be used anywhere
+
+staff <- tibble(
+  emp_id = c(1,2,3,4),
+  name=c("A","B","C","D"),
+  manager_id=c(NA,1,1,2)
+)
+staff
+
+#in the above if you want see the name of the employee and the nameof the manager side-by-side , which join?
+staff |> 
+  inner_join(staff,
+             by=c("manager_id"="emp_id"),
+            suff=c("_emp","_mang"))
