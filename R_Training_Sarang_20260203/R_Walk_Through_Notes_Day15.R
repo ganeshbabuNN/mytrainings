@@ -167,3 +167,7 @@ is.numeric(10)
 is.integer(10L)
 
 any(c(1,2,4)>2)
+all(c(1,2,4)>2)
+
+sin(12)
+cos(34)
