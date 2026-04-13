@@ -75,6 +75,3 @@ flights |>
   inner_join(airports,by=c("dest"="faa")) |> 
   select(year,month,day,flight,dep_delay,carrier,dest,tailnum,name.x,name.y) |> #flight+ airlines +airport
   semi_join(planes,by="tailnum") 
-  
-
-
