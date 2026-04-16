@@ -12,7 +12,6 @@ data("airports")
 data("weather")
 data("planes")
 View(flights)
-
 #advanced by parameter join_by()
 flights |> 
   left_join(airports,by=c("dest"="faa")) |> glimpse()
@@ -43,9 +42,3 @@ flights |>
   select(flight,carrier,tailnum,origin,avg_temp)
 #preventing duplication
 ##improve the performance
-
-
-
-
-
-
