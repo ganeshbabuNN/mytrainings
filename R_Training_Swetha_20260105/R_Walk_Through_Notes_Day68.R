@@ -113,8 +113,7 @@ flights |>
     filter(!is.na(tailnum.x))
 
 student <- tibble(id = c(1, 2, NA), name = c("Alice", "Bob", "Unknown"))
-hobbies  <- tibble(id = c(1, NA,NA), hobby = c("Coding", "Skiing","hedge"))
-student
-hobbies
-student |> left_join(hobbies,by="id")
-student |> left_join(hobbies,by="id",na_matches="na")
+hobbies  <- tibble(id = c(1,NA), hobby = c("Coding","Sting"))
+student |> left_join(hobbies,by="id") #which is default
+student |> left_join(hobbies,by="id",na_matches="na") #NA matches which is default
+student |> left_join(hobbies,by="id",na_matches="never") #NA never matches

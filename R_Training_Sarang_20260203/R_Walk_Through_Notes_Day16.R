@@ -107,6 +107,8 @@ paste0("ID_", ids)
 paste("Score: ",9.45678)
 #Score: 
 sprintf("Score: %.2f ",9.45678)
+
+sprintf("form_string",value1,value2)
 #Most Important Format Specifiers
 #Specifier-->Meaning-->	Example
 ##most frequenlty used.
@@ -117,11 +119,41 @@ sprintf("Score: %.2f ",9.45678)
 ##formatting & precssion specifer
 #%.nf(Precision)--> %.2f - 2 decimal places-->3.14
 #%e-->Scientific notation-->1.23e+03
-#%g --> automatically choise either %f or %e.. #six digits by default 
-#%% --> literals
+#%g --> automatically choise either %f or %e.. #six digits by default #%% --> literals
 
 ##paddig and alignment
 #%5d(Width)-->pads with spaces
 #%05d(padding)-->Pad with zeros
 #%-10s(left align)
 #%10s(right align)
+
+time<-"10:30 AM"
+users <- 332
+sprintf("[%s] Active users: %d",time,users)
+
+#String formatting
+sprintf("Hello %s", "Ganesh")
+#Integer formatting
+sprintf("Total items: %d", 25)
+#Decimal control
+sprintf("%f", 0.725896956) #by default, it prints six decimals
+sprintf("%.3f", 0.725896956) #to print 3 decimals only
+sprintf("%.f", 0.725896956) #round the number (print no decimals)
+sprintf("%+.3f", 0.725896956) #print the + sign (but the first 3 decimals only)
+sprintf("Accuracy: %.2f", 98.456)
+sprintf("Accuracy: %.2f%%", 98.456) #ti add percentage sign
+#Multiple Values in One String
+name <- "Ravi"
+score <- 87.345
+sprintf("Student %s scored %.1f marks", name, score)
+sprintf("%e", 82.235691) #%e and %E print the number in exponential format
+sprintf("%E", 82.235691)
+sprintf("%g", 82.235691) #%g prints six digits by default
+sprintf("%.4g", 82.235691) #print the first 4 digits
+sprintf("%.4s", "Philadelphia") #%s prints the desired number of characters in a string
+
+#padding and alignment
+sprintf("%5d",82) #blank padding.. width
+sprintf("%05d",82) #leading Zero padding
+sprintf("%-10s","Gan") #right align
+sprintf("%10s","Gan")  #left align
