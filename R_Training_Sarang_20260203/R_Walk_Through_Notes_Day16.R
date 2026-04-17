@@ -157,3 +157,7 @@ sprintf("%5d",82) #blank padding.. width
 sprintf("%05d",82) #leading Zero padding
 sprintf("%-10s","Gan") #right align
 sprintf("%10s","Gan")  #left align
+
+
+
+
