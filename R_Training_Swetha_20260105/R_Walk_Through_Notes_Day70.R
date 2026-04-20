@@ -7,7 +7,6 @@ view(flights)
 flights <- flights #not valid
 #load the data
 data("flights")
-data("airlines")
 data("airports")
 data("weather")
 data("planes")
@@ -97,7 +96,7 @@ group_keys(flights |> group_by(month,carrier)) #keys
 base_summary <- flights |> group_by(origin,carrier,month) 
 #.groups = "Drop" - this removes all the grouping entirely . this result is a standard
 base_summary |> summarise(avg_delay=mean(arr_delay,na.rm=TRUE),.groups = "drop")
-#.groups = "drop_last" - this drops the last level of grouping but keep the data grouped by origin and carrier.
+#.groups = "drop_last" - this drops the last level of grouping month but keep the data grouped by origin and carrier.
 base_summary |> summarise(avg_delay=mean(arr_delay,na.rm=TRUE),.groups = "drop_last")
 #.groups = "keep" - this retains the orginal structure
 base_summary |> summarise(avg_delay=mean(arr_delay,na.rm=TRUE),.groups = "keep")
@@ -118,3 +117,24 @@ flights |> group_by(origin,carrier) |>
       rating=get_rating(avg_delay) #works because of rowwise
     )
   
+#rought level
+df <- tibble(
+  Player = c("A", "A", "B", "B"),
+  Score  = c(10, 20, 5, 15)
+)
+
+# A 'picky' function that breaks if you give it a group/vector
+check_level <- function(x) {
+  if (x > 15) return("Pro")
+  return("Starter")
+}
+
+df %>%
+  group_by(Player) %>%
+  summarise(Total = sum(Score), .groups = "keep") %>%
+  mutate(Level = check_level(Total))
+
+df %>%
+  group_by(Player) %>%
+  summarise(Total = sum(Score), .groups = "rowwise") %>%
+  mutate(Level = check_level(Total))
