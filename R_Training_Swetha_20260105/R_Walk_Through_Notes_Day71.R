@@ -92,6 +92,8 @@ flights |>
     total_group_rows=nrow(cur_data()),.keep = "none"
   )
 
+  
+
 #this will return the integer of grouped with distinct grouped variable
 flights |> 
   group_by(origin) |> 
@@ -103,7 +105,10 @@ flights |>
 flights |> 
   group_by(carrier) |> 
   group_map(~head(.x,2))
+
 #group_modify() - you want transform your data but keep it as a grouped dataframe
 flights |> 
   group_by(carrier) |> 
-  group_modify(~head(.x,2))
+  group_modify(~head(.x,2))  
+
+
