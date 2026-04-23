@@ -76,6 +76,16 @@ flights |>
     group_by(month) |> 
     group_rows()
 
+#assign unique group number
+flights |> 
+   group_by(month,carrier) |> 
+   group_indices()
+
+#modern method
+flights |> 
+   group_by(month,carrier) |> 
+   mutate(group_id=cur_group_id()) |> 
+  select(month,carrier,group_id)
 
 
 
