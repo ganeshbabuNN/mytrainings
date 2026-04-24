@@ -89,7 +89,12 @@ flights |>
               flights  |> # query 3
                 filter(arr_delay > 60) |> 
                   pull(dest)
-          )) |> 
+          )
+        ) |> 
             pull(faa)
-        ))
-
+        )
+      )
+# first query 3 --> flights where arr_delay > 60  then return the character of dest
+# query 2 --> whatever the query3 character vector return to the airport$faa --Module in 
+# query 1 --> whatever output of query 2, which return list of dest from aiports datasets
+# main query --> whatever output of query 1, it will the dest of flights from the character vect of query1.
