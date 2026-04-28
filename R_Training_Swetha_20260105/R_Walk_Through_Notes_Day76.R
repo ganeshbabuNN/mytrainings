@@ -14,113 +14,113 @@ data("planes")
 View(flights)
 
 
+#what is data shapping?
+# change row to column
+#change column to row
+#conver the row/column to vector?
+
+#widing --> longing = columns becomes row  pivot_longer()
+#longing--> widing = rows become columns  pivot_wider()
+
+#pivot_longer()
 flights |> 
-  filter(dest %in% ( # query 1
-    airports |> 
-      filter( # query 2
-            faa %in% (
-              flights  |> # query 3
-                filter(arr_delay > 60) |> 
-                  pull(dest)
-          )) |> 
-            pull(faa)
-        ))
+  select(flight,dep_delay,arr_delay) |>
+  pivot_longer(
+    cols = c(dep_delay,arr_delay),
+    names_to ='Delay_type', #new column for cols names
+    values_to="Delay"  # new cols for values
+  )
 
-#subqueries with exists logic
+ #multiple column + patterns
+# %delay ends_with()
 flights |> 
-  semi_join(weather, by=c("origin","time_hour")) # SQL EXISTS
+  select(flight,dep_delay,arr_delay) |>
+  pivot_longer(
+    cols = ends_with("delay"),
+    names_to ='Delay_type', #new column for cols names
+    values_to="Delay"  # new cols for values
+  )
 
-#windows-stye subqeries
 flights |> 
-  group_by(dest) |> 
-  mutate(rank=dense_rank(desc(arr_delay)),.keep="none") |> 
-  filter(rank<=3)
+  pivot_longer(
+    cols = ends_with("delay"),
+    names_to ='Delay_type', #new column for cols names
+    values_to="Delay"  # new cols for values
+  )
 
-#subquery vs join
-#filtering the data which already exists --> semi_join()
-#exluding matches --> anti_join()
-#adding columns --> left_join()
-#value lookup -> %in%
+#split names into multiple columns
+flights |> 
+  select(flight,dep_time,arr_time) |>
+  pivot_longer(
+    cols = c(dep_time,arr_time),
+    names_to =c("event","type"),
+    names_sep="_"
+  )
 
-#%in%- lookup ing
-#semi_join()-- EXISTS
-#anti_join()-- NOT EXISTS
-#mutate()--> dervied variables
+colSums(is.na(flights))
+#remove NA
+flights |> 
+  select(flight,dep_time,arr_time) |>
+  pivot_longer(
+    cols = c(dep_time,arr_time),
+    names_to =c("event","type"),
+    names_sep="_",values_drop_na = TRUE
+  )
 
-#when not to use subqueries
-#avoid when.
-##multiple columns --> use joins
-##more performance --> use joins
-##logic becomes nested --> use pipe
+#long--> wide (pivot_wider())
+#rows to columns
+flights |> 
+  select(flight,carrier,dep_delay) |> 
+  pivot_wider(
+    names_from = carrier,
+    values_from = dep_delay
+  )
 
-#hight level , subqueries are not a primary concept.
+#handling duplicates
+flights |> 
+  group_by(flight,carrier) |> 
+  summarise(delay=mean(dep_delay,na.rm=TRUE))
 
-###COMPLETE SUBQUERY
+filter(flights,flight==1) |> arrange()
 
-#Combining the queries
-#row-wise combing
-#column-wise combing
+flights |> 
+  group_by(flight,carrier) |> 
+  summarise(delay=mean(dep_delay,na.rm=TRUE),.groups="drop") |> 
+  pivot_wider(
+    names_from=carrier,
+    values_from=delay
+  )
 
-#row-wise combining
-#Use only when the datasets should have same column and type
-jan_flights <- flights |> filter(month==1)
-feb_flights <- flights |> filter(month==2)
+#fill missing values
+flights |> 
+  group_by(flight,carrier) |> 
+  summarise(delay=mean(dep_delay,na.rm=TRUE),.groups="drop") |> 
+  pivot_wider(
+    names_from=carrier,
+    values_from=delay,
+    values_fill = 0
+  )
 
-combine <- bind_rows(jan_flights,feb_flights)
-#key concpets
-##automtically aligns column
-#missing column --> filled in the NA
+#multiple valuve cols
+flights |> 
+  select(flight,carrier,dep_delay,arr_delay) |> 
+  pivot_wider(
+    names_from = carrier,
+    values_from = c(dep_delay,arr_delay)
+  ) |> glimpse()
 
-#column-Wise combining
-##used when datasets have same number of rows
-df1 <- flights |> select(flight,origin)
-nrow(df1)
-df2 <- flights |> select(dest,air_time)
-nrow(df2)
+#separte columns
+#split one column into multiple
 
-combined <-bind_cols(df1,df2)
-#risk
-#no key matching-->purely based on positions
+flights |> 
+  select(tailnum) |> 
+  separate(
+    tailnum,
+    into=c("prefix","number"),
+    sep=1
+  )
 
-#Set operations
-#union() - combine the unique rows
-#union_all()- all the rows
-#intersect() -- common rows
-#setdiff() - row in A but not in B
-#sysmdiff() - rows in either A or B but not both
-
-#Rule
-## same column names
-## same data types
-
-a <- tibble(
-  id=c(1,2,3,4),
-  name=c("ganesh","Ravi","Sita","Anu")
-)
-
-b<- tibble(
-  id=c(3,4,5,6),
-  name=c("Sita","Anu","Kiran","John")
-)
-
-print(a)
-print(b)
-
-#union- combine unique rows
-union(a,b)
-
-#union_all() --> keep rows
-union_all(a,b)
-
-#interact()-common rows
-intersect(a,b)
-
-#setdiff--> A minus B
-setdiff(a,b) #present A but not in B
-setdiff(b,a) #B minus A
-
-#symdiff()- exlusve rows
-symdiff(a,b)
-union(a,b)
-#removes common rows, keep only unique ones
-
+#Unite column
+flights |> 
+  unite("route",origin,dest,sep="-",remove=FALSE) |> 
+  select(flight,origin,dest,route)
