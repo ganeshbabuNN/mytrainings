@@ -111,7 +111,6 @@ flights |>
 
 #separte columns
 #split one column into multiple
-
 flights |> 
   select(tailnum) |> 
   separate(
@@ -124,3 +123,5 @@ flights |>
 flights |> 
   unite("route",origin,dest,sep="-",remove=FALSE) |> 
   select(flight,origin,dest,route)
+
+
