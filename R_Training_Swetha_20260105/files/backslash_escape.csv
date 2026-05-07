@@ -1,0 +1,6 @@
+faa,name,lat,lon,alt,tz,dst,tzone,remarks
+04G,Lansdowne Airport,41.1304722,-80.6195833,1044,-5,A,America/New_York,"Pilot said \"Delayed due to weather\""
+06A,Moton Field Municipal Airport,32.4605722,-85.6800278,264,-6,A,America/Chicago,"Passenger said \"Very good flight\""
+06C,Schaumburg Regional,41.9893408,-88.1012428,801,-6,A,America/Chicago,Path: C:\Flights\Logs
+06N,Randall Airport,41.431912,-74.3915611,523,-5,A,America/New_York,"Quote and slash: \"Error\Warning\""
+09J,Jekyll Island Airport,31.0744722,-81.4277778,11,-5,A,America/New_York,Normal text
